@@ -1,0 +1,74 @@
+#!/usr/bin/python3
+
+import subprocess
+import sys
+from googletrans import Translator
+from colorama import Fore
+
+translator = Translator()
+
+banner = """
+  ____    __  ____    ____   _    __    
+ |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Silva
+ |     \/   ||     \ |     \| ||_    _| 
+ |__/\__/|__||__|\__\|__/\____|  |__|   
+========== Tradutor de ajuda e manual do Linux ==========
+"""
+
+msg_help = f"""{Fore.YELLOW}
+-- MODO DE USO --
+
+OPCOES:
+    -m, --man:  mostra o manual da ferramenta escolhida.
+    -h, --help: mostra a ajuda/help da ferramenta escolhida.
+    -H:         mostra o help do MANT, esse que voce esta vendo.
+
+COMO CORRER:
+    mant <SCRIPT> <OPCAO>
+    EXEMPLO: mant nmap -h
+    {Fore.RESET}"""
+
+class manpt():
+    def __init__(self, cmd=""):
+        self.cmd = cmd
+
+    def trad(self, result):
+        traduction = translator.translate(result, src="auto", dest="pt")
+        print(traduction)
+
+    def man(self):
+        command = subprocess.run(self.cmd, stdout=subprocess.PIPE, shell=True)
+        result = command.stdout.decode()
+        manpt().trad(result)
+
+if len(sys.argv) < 2:
+    print(msg_help)
+    quit()
+if len(sys.argv) >= 2:
+    script = sys.argv[1]
+    if script == "-H":
+        print(msg_help)
+        quit()
+
+if len(sys.argv) >= 3:
+    opc = sys.argv[2]
+
+    if opc == "-h" or opc == "--help":
+        cmd = f"{script} --help"
+        msgf = f"AJUDA DE {script.upper()}"
+    if opc == "-m" or opc == "--man":
+        cmd = f"man {script}"
+        msgf = f"MANUAL DE {script.upper()}"
+
+print(f"{Fore.YELLOW}{banner}{Fore.RESET}")
+try:
+    manpt(cmd).man()
+
+    print(f"\n{Fore.YELLOW}========== {msgf} =========={Fore.RESET}")
+except KeyboardInterrupt:
+    print(f"\n{Fore.GREEN}SAINDO...{Fore.RESET}\n")
+except:
+    print(f"\n{Fore.RED}ERRO DESCONHECIDO, verifique sua internet e tente novamente.{Fore.RESET}\n")
+else:
+    pass
+
