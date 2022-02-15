@@ -22,6 +22,7 @@ OPCOES:
     -m, --man:  mostra o manual da ferramenta escolhida.
     -h, --help: mostra a ajuda/help da ferramenta escolhida.
     -H:         mostra o help do MANT, esse que voce esta vendo.
+    -t, --text  traduz texto dentro de aspas "".
 
 COMO CORRER:
     mant <SCRIPT> <OPCAO>
@@ -32,14 +33,16 @@ class manpt():
     def __init__(self, cmd=""):
         self.cmd = cmd
 
-    def trad(self, result):
+    def trad(self, result=""):
         traduction = translator.translate(result, src="auto", dest="pt")
-        print(traduction)
+        print(traduction.text)
 
     def man(self):
         command = subprocess.run(self.cmd, stdout=subprocess.PIPE, shell=True)
         result = command.stdout.decode()
         manpt().trad(result)
+
+print(f"{Fore.YELLOW}{banner}{Fore.RESET}")
 
 if len(sys.argv) < 2:
     print(msg_help)
@@ -56,19 +59,25 @@ if len(sys.argv) >= 3:
     if opc == "-h" or opc == "--help":
         cmd = f"{script} --help"
         msgf = f"AJUDA DE {script.upper()}"
-    if opc == "-m" or opc == "--man":
+    elif opc == "-m" or opc == "--man":
         cmd = f"man {script}"
         msgf = f"MANUAL DE {script.upper()}"
+    elif opc == "-t" or opc == "--text":
+        manpt().trad(script)
+        msgf = f"TRADUÇAO DE TEXTO"
+        print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
+        quit()
+    else:
+        print(f"\n{Fore.RED}ERRO, passe um parametro valido.{Fore.RESET}\n")
+        quit()
 
-print(f"{Fore.YELLOW}{banner}{Fore.RESET}")
 try:
     manpt(cmd).man()
 
-    print(f"\n{Fore.YELLOW}========== {msgf} =========={Fore.RESET}")
+    print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
 except KeyboardInterrupt:
-    print(f"\n{Fore.GREEN}SAINDO...{Fore.RESET}\n")
+    print(f"\n{Fore.YELLOW}SAINDO...{Fore.RESET}\n")
 except:
-    print(f"\n{Fore.RED}ERRO DESCONHECIDO, verifique sua internet e tente novamente.{Fore.RESET}\n")
+    print(f"\n{Fore.RED}ERRO DESCONHECIDO, verifique sua internet e verifique se os parametros passados sao validos.{Fore.RESET}\n")
 else:
-    pass
-
+    quit()
