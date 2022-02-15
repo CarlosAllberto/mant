@@ -1,13 +1,18 @@
 <h1 align=center>Mant</h1>
 <h3>Tradutor de ajuda e manual Linux</h3>
 
+<div align=center>
+    <img src="./img.png" width="400px" />
+    <img src="./img2.png" width="400px">
+</div>
+
 Não saber inglês torna-se um grande pé no saco na maioria da vezes já que a maioria das ferramentas são escritas em inglês e torna-se difícil ler manual e o help de ferramentas para algumas pessoas.
 
 Então resolvir fazer essa ferramenta que traduz o help e o man de ferramentas do Linux🐧 para ajudar essas pessoas e me ajuda também.
 
 
 ## Instalação:
-💻 Kali Linux e derivados do Debian:
+💻 derivados do Debian:
 
 ```
 git clone https://github.com/CarlosAllberto/mant
@@ -22,7 +27,13 @@ sudo ./install.sh
 git clone https://github.com/CarlosAllberto/mant
 cd mant
 chmod +x install.sh
-./termux_install.sh
+./install.sh
+```
+
+## Desinstalar
+
+```
+./remove.sh
 ```
 
 ## Run:
