@@ -1,5 +1,5 @@
 <h1 align=center>Mant</h1>
-<h3>Tradutor de ajuda e manual Linux</h3>
+<h3>Tradutor de ajuda, Manual do Linux e Textos</h3>
 
 <div align=center>
     <img src="./img.png" width="400px" />
