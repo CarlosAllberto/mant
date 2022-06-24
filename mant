@@ -19,14 +19,22 @@ msg_help = f"""{Fore.YELLOW}
 -- MODO DE USO --
 
 OPCOES:
-    -m, --man:  mostra o manual da ferramenta escolhida.
-    -h, --help: mostra a ajuda/help da ferramenta escolhida.
-    -H:         mostra o help do MANT, esse que voce esta vendo.
-    -t, --text  traduz texto dentro de aspas "".
+    -m, --man:     mostra o manual da ferramenta escolhida.
+    -h, --help:    mostra a ajuda/help da ferramenta escolhida.
+    -H:            mostra o help do MANT, esse que voce esta vendo.
+    -t, --text:    traduz texto dentro de aspas "".
+    -a, --arquive: traduz arquivo de texto.
+    -p, --pdf:     traduz pdf
 
 COMO CORRER:
     mant <SCRIPT> <OPCAO>
-    EXEMPLO: mant nmap -h
+
+EXEMPLOS:
+    mant nmap -h
+    mant git -m
+    mant "hello my friend" -t
+    mant arquivo.txt -a
+    mant arquivo.pdf -p
     {Fore.RESET}"""
 
 class manpt():
