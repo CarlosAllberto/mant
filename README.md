@@ -1,4 +1,11 @@
-<h1 align=center>Mant</h1>
+```
+  ____    __  ____    ____   _    __    
+ |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Silva
+ |     \/   ||     \ |     \| ||_    _| 
+ |__/\__/|__||__|\__\|__/\____|  |__|   
+========== Tradutor de ajuda e manual do Linux ==========
+```
+
 <h3>Tradutor de ajuda, Manual do Linux e Textos</h3>
 
 <div align=center>
@@ -8,11 +15,11 @@
 
 Não saber inglês torna-se um grande pé no saco na maioria da vezes já que a maioria das ferramentas são escritas em inglês e torna-se difícil ler manual e o help de ferramentas para algumas pessoas.
 
-Então resolvir fazer essa ferramenta que traduz o help e o man de ferramentas do Linux🐧 para ajudar essas pessoas e me ajuda também.
+Então resolvir fazer essa ferramenta que traduz o help e o man de ferramentas do Linux🐧 para ajudar essas pessoas e me ajudar também.
 
 
 ## Instalação:
-💻 derivados do Debian:
+### 💻 Derivados do Debian:
 
 ```
 git clone https://github.com/CarlosAllberto/mant
@@ -21,13 +28,25 @@ chmod +x install.sh
 sudo ./install.sh
 ```
 
-📱 Termux:
+Em uma linha:
+
+```
+git clone https://github.com/CarlosAllberto/mant && cd mant && chmod +x install.sh && sudo ./install.sh
+```
+
+### 📱 Termux:
 
 ```
 git clone https://github.com/CarlosAllberto/mant
 cd mant
 chmod +x install.sh
 ./install.sh
+```
+
+Em uma linha:
+
+```
+git clone https://github.com/CarlosAllberto/mant && cd mant && chmod +x install.sh && ./install.sh
 ```
 
 ## Desinstalar
