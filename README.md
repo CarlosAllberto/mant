@@ -6,12 +6,20 @@
 ========== O tradutor do Linux ==========
 ```
 
-<h3>Tradutor de ajuda, Manual do Linux e Textos</h3>
+<h3>Tradutor facil e útil</h3>
 
 <div align=center>
     <img src="./img.png" width="400px" />
     <img src="./img2.png" width="400px">
 </div>
+
+### Oque ele traduz?
+
+- Texto
+- Manual do linux (man)
+- Help do linux (help)
+- Arquivos de Texto
+- PDF
 
 Não saber inglês torna-se um grande pé no saco na maioria da vezes já que a maioria das ferramentas são escritas em inglês e torna-se difícil ler manual e o help de ferramentas para algumas pessoas.
 
