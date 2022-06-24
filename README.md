@@ -3,7 +3,7 @@
  |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Silva
  |     \/   ||     \ |     \| ||_    _| 
  |__/\__/|__||__|\__\|__/\____|  |__|   
-========== Tradutor de ajuda e manual do Linux ==========
+========== O tradutor do Linux ==========
 ```
 
 <h3>Tradutor de ajuda, Manual do Linux e Textos</h3>
