@@ -3,7 +3,7 @@
 import subprocess
 import sys
 from googletrans import Translator
-from colorama import Fore
+from colorama import Fore, Style
 
 translator = Translator()
 
@@ -12,7 +12,7 @@ banner = """
  |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Silva
  |     \/   ||     \ |     \| ||_    _| 
  |__/\__/|__||__|\__\|__/\____|  |__|   
-========== Tradutor de ajuda e manual do Linux ==========
+========== O Tradutor do Linux ==========
 """
 
 msg_help = f"""{Fore.YELLOW}
@@ -35,12 +35,41 @@ class manpt():
 
     def trad(self, result=""):
         traduction = translator.translate(result, src="auto", dest="pt")
-        print(traduction.text)
+        #print(traduction.text)
+        return traduction.text
 
     def man(self):
         command = subprocess.run(self.cmd, stdout=subprocess.PIPE, shell=True)
         result = command.stdout.decode()
-        manpt().trad(result)
+        if len(result) < 5000:
+            result_trad = manpt().trad(result)
+            print(result_trad)
+        else:
+            result = result.split("\n")
+            for line in result:
+                result_trad = manpt().trad(line)
+                print(result_trad)
+
+    def arq(self, result=""):
+        try:
+            file = open(result, "r").read()
+            new_file = open(f"trad_{result}", "w")
+            print(f"{Fore.YELLOW}Traduzindo o seu arquivo de texto...{Fore.RESET}")
+            if len(file) < 5000:
+                result_trad = manpt().trad(file)
+                new_file.write(f"{result_trad}\n")
+            else:
+                file = file.split("\n")
+                for line in file:
+                    result_trad = manpt().trad(line)
+                    new_file.write(f"{result_trad}\n")
+        except Exception as err:
+            print(err)
+        else:
+            print(f"{Fore.YELLOW}Arquivo de texto traduzido e salvo como: {Style.BRIGHT}trad_{result}{Style.RESET_ALL}")
+
+    def pdf(self, result=""):
+        pass
 
 print(f"{Fore.YELLOW}{banner}{Fore.RESET}")
 
@@ -64,7 +93,17 @@ if len(sys.argv) >= 3:
         msgf = f"MANUAL DE {script.upper()}"
     elif opc == "-t" or opc == "--text":
         manpt().trad(script)
-        msgf = f"TRADUÇAO DE TEXTO"
+        msgf = "TRADUÇAO DE TEXTO"
+        print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
+        quit()
+    elif opc == "-a" or opc == "--arquive":
+        manpt().arq(script)
+        msgf = "TRADUÇAO DE ARQUIVO"
+        print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
+        quit()
+    elif opc == "-p" or opc == "--pdf":
+        manpt().pdf(script)
+        msgf = "TRADUÇAO DE PDF"
         print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
         quit()
     else:

@@ -16,8 +16,8 @@ chmod +x ./mant
 
 echo "
 qual seu sistema:
-1 - derivado do debian
-2 - termux
+1 - Derivado do Debian ou Arch
+2 - Termux
 "
 
 read -p "opcao: " opc
