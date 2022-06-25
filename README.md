@@ -69,7 +69,7 @@ Se você for tentar traduzir um PDF sera necessário instalar uma fonte antes.
 O mant ja vem com uma fonte baixada chamada `SpaceMono-Regular.ttf` você
 precisa copiar ela para `/fpdf/fonts` o local pode variar depedendo da sua distribuição.
 
-Como eu uso Manjaro ele estava em: `/home/carlos/.local/lib/python3.10/site-packages/fpdf/fonts`
+Como eu uso Manjaro ela estava em: `/home/carlos/.local/lib/python3.10/site-packages/fpdf/fonts`
 se estiver usando algun derivado do Debian ela pode estar em: `/usr/local/lib/python3.8/dist-packages/fpdf/fonts` 
 
 Obs: se a pasta fonts não existir dentro de fpdf você pode criar com `mkdir fonts`.
