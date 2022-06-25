@@ -2,6 +2,8 @@
 
 import subprocess
 import sys
+import PyPDF2
+from fpdf import FPDF
 from googletrans import Translator
 from colorama import Fore, Style
 
@@ -74,10 +76,35 @@ class manpt():
         except Exception as err:
             print(err)
         else:
+            file.close()
+            new_file.close()
             print(f"{Fore.YELLOW}Arquivo de texto traduzido e salvo como: {Style.BRIGHT}trad_{result}{Style.RESET_ALL}")
 
     def pdf(self, result=""):
-        pass
+        try:
+            file = open(result, "rb")
+
+            pdf = PyPDF2.PdfFileReader(file)
+            cont_page = pdf.getNumPages()
+            new_pdf = FPDF()
+            new_pdf.add_page()
+            new_pdf.add_font("Space Mono", "", "SpaceMono-Regular.ttf", uni=True)
+            new_pdf.set_font("Space Mono", "", size=10)
+            new_pdf.ln(0)
+            pages = int(cont_page)
+            print(f"{Fore.YELLOW}Traduzindo o seu PDF...{Fore.RESET}")
+            for page in range(0, pages):
+                pagina = pdf.getPage(page)
+                texto_pagina = manpt().trad(pagina.extractText())#.split()
+                new_pdf.add_page()
+                new_pdf.multi_cell(190, 10, txt=texto_pagina)
+            new_pdf.output(f"trad_{result}")
+
+        except Exception as err:
+            print(err) 
+        else:
+            file.close()
+            print(f"{Fore.YELLOW}PDF traduzido e salvo como: {Style.BRIGHT}trad_{result}{Style.RESET_ALL}")
 
 print(f"{Fore.YELLOW}{banner}{Fore.RESET}")
 
@@ -100,7 +127,8 @@ if len(sys.argv) >= 3:
         cmd = f"man {script}"
         msgf = f"MANUAL DE {script.upper()}"
     elif opc == "-t" or opc == "--text":
-        manpt().trad(script)
+        result_trad = manpt().trad(script)
+        print(result_trad)
         msgf = "TRADUÇAO DE TEXTO"
         print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
         quit()
