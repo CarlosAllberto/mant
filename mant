@@ -51,29 +51,38 @@ class manpt():
     def man(self):
         command = subprocess.run(self.cmd, stdout=subprocess.PIPE, shell=True)
         result = command.stdout.decode()
-        if len(result) < 5000:
+        tam = len(result)
+        if tam < 5000:
             result_trad = manpt().trad(result)
             print(result_trad)
         else:
-            result = result.split("\n")
-            for line in result:
-                result_trad = manpt().trad(line)
+            cont = 0
+            for lines in range(3000, tam, 3000):
+                result_trad = manpt().trad(result[cont:lines])
                 print(result_trad)
+                cont = cont + 3000
 
     def arq(self, result=""):
         try:
-            file = open(result, "r").read()
+            file = open(result, "r", errors="ignore")
+            text = file.read()
             new_file = open(f"trad_{result}", "w")
             print(f"{Fore.YELLOW}Traduzindo o seu arquivo de texto...{Fore.RESET}")
-            if len(file) < 5000:
-                result_trad = manpt().trad(file)
+            tam = len(text)
+            if tam < 5000:
+                result_trad = manpt().trad(text)
                 new_file.write(f"{result_trad}\n")
             else:
-                file = file.split("\n")
-                for line in file:
-                    result_trad = manpt().trad(line)
+                cont = 0
+                for lines in range(3000, tam, 3000):
+                    result_trad = manpt().trad(text[cont:lines])
                     new_file.write(f"{result_trad}\n")
+                    cont = cont + 3000
+        except KeyboardInterrupt:
+            print(f"\n{Fore.YELLOW}SAINDO...{Fore.RESET}\n")
         except Exception as err:
+            file.close()
+            new_file.close()
             print(err)
         else:
             file.close()
@@ -99,8 +108,10 @@ class manpt():
                 new_pdf.add_page()
                 new_pdf.multi_cell(190, 10, txt=texto_pagina)
             new_pdf.output(f"trad_{result}")
-
+        except KeyboardInterrupt:
+            print(f"\n{Fore.YELLOW}SAINDO...{Fore.RESET}\n")
         except Exception as err:
+            file.close()
             print(err) 
         else:
             file.close()
