@@ -1,6 +1,6 @@
 ```
   ____    __  ____    ____   _    __    
- |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Silva
+ |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Alberto
  |     \/   ||     \ |     \| ||_    _| 
  |__/\__/|__||__|\__\|__/\____|  |__|   
 ========== O tradutor do Linux ==========
@@ -15,11 +15,11 @@
 
 ### Oque ele traduz?
 
-- Texto
-- Manual do linux (man)
-- Help do linux (help)
-- Arquivos de Texto
-- PDF
+[x] Texto
+[x] Manual do linux (man)
+[x] Help do linux (help)
+[x] Arquivos de Texto
+[x] PDF (apenas desktop)
 
 Não saber inglês torna-se um grande pé no saco na maioria da vezes já que a maioria das ferramentas são escritas em inglês e torna-se difícil ler manual e o help de ferramentas para algumas pessoas.
 
@@ -64,15 +64,8 @@ git clone https://github.com/CarlosAllberto/mant && cd mant && chmod +x install.
 ```
 
 ## Adicionando fonte
-Se você for tentar traduzir um PDF sera necessário instalar uma fonte antes.
-
-O mant ja vem com uma fonte baixada chamada `SpaceMono-Regular.ttf` você
-precisa copiar ela para `/fpdf/fonts` o local pode variar depedendo da sua distribuição.
-
-Como eu uso Manjaro ela estava em: `/home/carlos/.local/lib/python3.10/site-packages/fpdf/fonts`
-se estiver usando algun derivado do Debian ela pode estar em: `/usr/local/lib/python3.8/dist-packages/fpdf/fonts` 
-
-Obs: se a pasta fonts não existir dentro de fpdf você pode criar com `mkdir fonts`.
+Agora não é mais preciso adicionar fontes.
+A fonte é inserida de forma automatica
 
 ## Run:
 

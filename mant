@@ -6,12 +6,16 @@ import PyPDF2
 from fpdf import FPDF
 from googletrans import Translator
 from colorama import Fore, Style
+import subprocess
+
+#verifica plataforma android
+platform = subprocess.run("uname -o", stdout=subprocess.PIPE, shell=True)
 
 translator = Translator()
 
 banner = """
   ____    __  ____    ____   _    __    
- |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Silva
+ |    \  /  ||    \  |    \ | | _|  |_  por: Carlos Alberto
  |     \/   ||     \ |     \| ||_    _| 
  |__/\__/|__||__|\__\|__/\____|  |__|   
 ========== O Tradutor do Linux ==========
@@ -149,6 +153,9 @@ if len(sys.argv) >= 3:
         print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
         quit()
     elif opc == "-p" or opc == "--pdf":
+        if "android" in str(platform.stdout.lower()):
+            print(f"\n{Fore.RED}Essa função não funciona em android{Fore.RESET}\n")
+            exit()
         manpt().pdf(script)
         msgf = "TRADUÇAO DE PDF"
         print(f"\n{Fore.YELLOW}{msgf:=^57}{Fore.RESET}\n")
