@@ -9,7 +9,7 @@
 <h3>Tradutor facil e útil</h3>
 
 <div align=center>
-    <img src="./assets/img.png" width="400px" />
+    <img src="./assets/img1.png" width="400px" />
     <img src="./assets/img2.png" width="400px">
 </div>
 
