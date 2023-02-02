@@ -113,7 +113,7 @@ class manpt():
                 texto_pagina = manpt().trad(pagina.extract_text())#.split()
                 new_pdf.add_page()
                 new_pdf.multi_cell(190, 10, txt=texto_pagina)
-            new_pdf.output(f"trad_{result}")
+            new_pdf.output(f"traduzido_{result}")
         except KeyboardInterrupt:
             print(f"\n{Fore.YELLOW}SAINDO...{Fore.RESET}\n")
         except Exception as err:
@@ -121,7 +121,7 @@ class manpt():
             print(err) 
         else:
             file.close()
-            print(f"{Fore.YELLOW}PDF traduzido e salvo como: {Style.BRIGHT}trad_{result}{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}PDF traduzido e salvo como: {Style.BRIGHT}traduzido_{result}{Style.RESET_ALL}")
 
 print(f"{Fore.YELLOW}{banner}{Fore.RESET}")
 
