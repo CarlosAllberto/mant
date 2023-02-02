@@ -15,11 +15,11 @@
 
 ### Oque ele traduz?
 
-[x] Texto
-[x] Manual do linux (man)
-[x] Help do linux (help)
-[x] Arquivos de Texto
-[x] PDF (apenas desktop)
+- [x] Texto
+- [x] Manual do linux (man)
+- [x] Help do linux (help)
+- [x] Arquivos de Texto
+- [x] PDF (apenas desktop)
 
 Não saber inglês torna-se um grande pé no saco na maioria da vezes já que a maioria das ferramentas são escritas em inglês e torna-se difícil ler manual e o help de ferramentas para algumas pessoas.
 
