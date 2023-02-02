@@ -24,8 +24,9 @@ if [ $opc == 1 ]
         pip install PyPDF2
         pip install fpdf
         sudo cp ./mant /usr/bin
-        mkdir fonts ~/.local/lib/python*/**/fpdf/
-        cp ./assets/SpaceMono-Regular.ttf ~/.local/lib/python*/**/fpdf/fonts/
+        version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
+        mkdir -p ~/.local/lib/python$version/site-packages/fpdf/font
+        cp ./assets/SpaceMono-Regular.ttf ~/.local/lib/python$version/site-packages/fpdf/font/
         echo "INSTALADO EM /usr/bin"
 fi
 
@@ -38,8 +39,9 @@ if [ $opc == 2 ]
         pip install PyPDF2
         pip install fpdf
         sudo cp ./mant /usr/bin
-        mkdir fonts ~/.local/lib/python*/**/fpdf/
-        cp ./assets/SpaceMono-Regular.ttf ~/.local/lib/python*/**/fpdf/fonts/
+        version=$(python -c 'import sys; print(".".join(map(str, sys.version_info[0:2])))')
+        mkdir -p ~/.local/lib/python$python/site-packages/fpdf/font
+        cp ./assets/SpaceMono-Regular.ttf ~/.local/lib/python$version/site-packages/fpdf/font/
         echo "INSTALADO EM /usr/bin"
 fi
 

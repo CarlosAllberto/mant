@@ -72,7 +72,7 @@ class manpt():
         try:
             file = open(result, "r", errors="ignore")
             text = file.read()
-            new_file = open(f"trad_{result}", "w")
+            new_file = open(f"traduzido_{result}", "w")
             print(f"{Fore.YELLOW}Traduzindo o seu arquivo de texto...{Fore.RESET}")
             tam = len(text)
             if tam < 5000:
@@ -93,14 +93,14 @@ class manpt():
         else:
             file.close()
             new_file.close()
-            print(f"{Fore.YELLOW}Arquivo de texto traduzido e salvo como: {Style.BRIGHT}trad_{result}{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}Arquivo de texto traduzido e salvo como: {Style.BRIGHT}traduzido_{result}{Style.RESET_ALL}")
 
     def pdf(self, result=""):
         try:
             file = open(result, "rb")
 
-            pdf = PyPDF2.PdfFileReader(file)
-            cont_page = pdf.getNumPages()
+            pdf = PyPDF2.PdfReader(file)
+            cont_page = len(pdf.pages)
             new_pdf = FPDF()
             new_pdf.add_page()
             new_pdf.add_font("Space Mono", "", "SpaceMono-Regular.ttf", uni=True)
@@ -109,8 +109,8 @@ class manpt():
             pages = int(cont_page)
             print(f"{Fore.YELLOW}Traduzindo o seu PDF...{Fore.RESET}")
             for page in range(0, pages):
-                pagina = pdf.getPage(page)
-                texto_pagina = manpt().trad(pagina.extractText())#.split()
+                pagina = pdf.pages[page]
+                texto_pagina = manpt().trad(pagina.extract_text())#.split()
                 new_pdf.add_page()
                 new_pdf.multi_cell(190, 10, txt=texto_pagina)
             new_pdf.output(f"trad_{result}")
