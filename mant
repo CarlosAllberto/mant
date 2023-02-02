@@ -2,14 +2,16 @@
 
 import subprocess
 import sys
-import PyPDF2
-from fpdf import FPDF
 from googletrans import Translator
 from colorama import Fore, Style
 import subprocess
 
 #verifica plataforma android
 platform = subprocess.run("uname -o", stdout=subprocess.PIPE, shell=True)
+
+if not "android" in str(platform.stdout.lower()):
+    import PyPDF2
+    from fpdf import FPDF
 
 translator = Translator()
 

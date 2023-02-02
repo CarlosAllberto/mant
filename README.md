@@ -9,8 +9,8 @@
 <h3>Tradutor facil e útil</h3>
 
 <div align=center>
-    <img src="./img.png" width="400px" />
-    <img src="./img2.png" width="400px">
+    <img src="./assets/img.png" width="400px" />
+    <img src="./assets/img2.png" width="400px">
 </div>
 
 ### Oque ele traduz?

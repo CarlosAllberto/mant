@@ -25,7 +25,7 @@ if [ $opc == 1 ]
         pip install fpdf
         sudo cp ./mant /usr/bin
         mkdir fonts ~/.local/lib/python*/**/fpdf/
-        cp ./SpaceMono-Regular.ttf ~/.local/lib/python*/**/fpdf/fonts/
+        cp ./assets/SpaceMono-Regular.ttf ~/.local/lib/python*/**/fpdf/fonts/
         echo "INSTALADO EM /usr/bin"
 fi
 
@@ -39,7 +39,7 @@ if [ $opc == 2 ]
         pip install fpdf
         sudo cp ./mant /usr/bin
         mkdir fonts ~/.local/lib/python*/**/fpdf/
-        cp ./SpaceMono-Regular.ttf ~/.local/lib/python*/**/fpdf/fonts/
+        cp ./assets/SpaceMono-Regular.ttf ~/.local/lib/python*/**/fpdf/fonts/
         echo "INSTALADO EM /usr/bin"
 fi
 
