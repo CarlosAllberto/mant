@@ -11,6 +11,7 @@
 <div align=center>
     <img src="./assets/img1.png" width="400px" />
     <img src="./assets/img2.png" width="400px">
+    <img src="./assets/img3.png" width="400px">
 </div>
 
 ### Oque ele traduz?
